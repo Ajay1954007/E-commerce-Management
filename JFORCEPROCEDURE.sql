@@ -110,8 +110,7 @@ BEGIN
     ELSEIF v_status <> 'Pending' THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Only pending orders can be cancelled';
     END IF;
-    -- Lock affected product rows in consistent product_id order to reduce deadlock risk.
-    -- This procedure restores every item, including repeated products in an order.
+   
     SELECT COALESCE(SUM(quantity), 0) INTO v_restored
     FROM order_items WHERE order_id = p_order_id;
     UPDATE products p
