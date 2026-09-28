@@ -11,7 +11,7 @@ SELECT product_id, stock_quantity FROM products WHERE product_id = 301;
 CALL PlaceOrder(101, 301, 2);
 
 SELECT product_id, stock_quantity FROM products WHERE product_id = 301;
-CALL CancelOrder(5016); -- replace 5016 if your generated order ID differs
+CALL CancelOrder(5016); 
 SELECT product_id, stock_quantity FROM products WHERE product_id = 301;
 CALL GetCustomerOrderHistory(101);
 CALL GetSalesReport('2026-09-01', '2026-09-30');
